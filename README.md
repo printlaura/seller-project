@@ -71,6 +71,9 @@ Use cases handled in this project:
 - **Update Brand Manager**: change the Brand Manager for a Brand. For example, for a scenario where the original Brand Manager quits and is replaced by a new one.
 - **Delete unsold items**: delete from the database all items that haven't sold any units in the last 9 months..
 
+The logic is handled in `app/routes.py`
+The SQL code that was translated into SQLAlchemy functions can be found in `db/queries.sql`
+
 ## Setting Up the Development Environment
 
 
