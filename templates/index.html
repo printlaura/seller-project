@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hello</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <h2>welcome to our sales dashboard</h2>
+    <ul>
+        <li><a href="{{ url_for('main_bp.get_items_by_brand_manager', brand_manager_id=1) }}">Items by brand manager</a></li>
+        <li><a href="{{ url_for('main_bp.get_sales_by_year_month', year=2021, month=6) }}">Sales for a specific year & month</a></li>
+        <li><a href="{{ url_for('main_bp.get_total_sales_per_date') }}">Total sales per date</a></li>
+        <li><a href="{{ url_for('main_bp.get_sales_per_brand_by_year_month', year=2021, month=6) }}">Sales per brand by year & month</a></li>
+        <li><a href="{{ url_for('main_bp.add_brand') }}">Add new brand</a></li>
+        <li><a href="{{ url_for('main_bp.update_brand_manager') }}">Update brand manager for a brand</a></li>
+        <li><a href="{{ url_for('main_bp.delete_unsold_items') }}">! Delete unsold items from database</a></li>
+    </ul>
+</body>
+</html>

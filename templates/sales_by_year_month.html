@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales for {{ year }}/{{ month }}</title>
+</head>
+<body>
+    <h1>Sales for {{ year }}/{{ month }}</h1>
+    <ul>
+        {% for sale in sales %}
+        <li>Order ID: {{ sale.order_id }} - Date: {{ sale.order_date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

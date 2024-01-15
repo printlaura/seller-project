@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items by Brand Manager</title>
+</head>
+<body>
+    <h1>Items Managed by {{ brand_manager_name }}</h1>
+    <ul>
+        {% for item in items %}
+        <li>{{ item.product_title }} - Launched at: {{ item.launched_at }} - Brand: {{ item.brand_name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

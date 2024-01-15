@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Brand Manager</title>
+</head>
+<body>
+    <h1>Update Brand Manager</h1>
+    <form id="updateBrandManagerForm">
+        <label for="brand_name">Brand Name:</label><br>
+        <input type="text" id="brand_name" name="brand_name"><br>
+        <label for="brand_manager_full_name">Brand Manager Full Name:</label><br>
+        <input type="text" id="brand_manager_full_name" name="brand_manager_full_name"><br>
+        <input type="submit" value="Update Brand Manager">
+    </form>
+
+    <script>
+        document.getElementById('updateBrandManagerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                brand_name: document.getElementById('brand_name').value,
+                brand_manager_full_name: document.getElementById('brand_manager_full_name').value
+            };
+
+            fetch("{{ url_for('main_bp.update_brand_manager') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

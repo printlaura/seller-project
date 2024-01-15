@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Sales per Date</title>
+</head>
+<body>
+    <h1>Total Sales per Date</h1>
+    <ul>
+        {% for sale in sales %}
+        <li>Date: {{ sale.date }} - Total Sales: {{ sale.total_sales }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

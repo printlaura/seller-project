@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales per Brand</title>
+</head>
+<body>
+    <h1>Sales per Brand for {{ year }}/{{ month }}</h1>
+    <ul>
+        {% for sale in sales %}
+        <li>Brand: {{ sale.brand }} - Code: {{ sale.brand_code }} - Sales Count: {{ sale.sales_count }} - Total Margin: {{ sale.total_margin }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
