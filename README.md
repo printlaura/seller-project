@@ -1,8 +1,9 @@
 # Seller Project
 
 ## Description
-This project was thought as if it was developed for an e-Commerce aggregator called Seller Project. An e-commerce aggregator is a business that acquires and consolidates multiple smaller online retailers or brands, typically operating in the same marketplaces (e.g. Amazon).
-So far, Seller Project has acquired several brands. 
+This project was thought as if it was developed for an e-Commerce aggregator called Seller Project. An e-commerce aggregator is a business that acquires and consolidates multiple smaller online retailers or brands, typically operating in the same marketplaces (e.g. Amazon.pl, Amazon.com, Amazon.es, Shopify, Walmart.com).
+
+So far, Seller Project has already acquired several brands. 
 
 ## Disclaimer
 The project was built to showcase Relational Databases development learnings, so all other aspects of the development of the Application should not be considered as finished or fully handled.
@@ -10,7 +11,7 @@ For aspects of the development that are not assessed in this module (e.g. templa
 
 
 
-## For better understanding of the data model
+## High level business explanation for better understanding of the data model
 - **Brands and Brand Managers**:
   - Each `Brand` sells one or more `Items`.
   - Each Brand is overseen by one `Brand Managers`.
@@ -58,18 +59,46 @@ Use cases handled in this project:
 
 ### Installation
 
-1. Set up a [PostgreSQL Database](https://www.postgresql.org/docs/current/tutorial-install.html)
+1. **Set up a [PostgreSQL Database](https://www.postgresql.org/docs/current/tutorial-install.html)**
+
    - Ensure to take note of the connection URL to the database (e.g.: postgresql://johndoe:somepassword@localhost:5432/mydb)
-2. Clone the repository: `git clone https://github.com/printlaura/seller-project.git`
+
+2. **Clone the repository:** 
+
+`git clone https://github.com/printlaura/seller-project.git`
+
 3. Navigate to the project directory
-4. Install dependencies: `pip3 install -r requirements.txt`
-5. Initial database setup: run `create-db`
-6. Initialize the migrations directory (only the first time): `flask db init`
-7. To create a new migration after a model change: `flask db migrate -m "message describing the migration"`
-8. To apply the migration to the database `flask db upgrade`
+
+4. **Install dependencies:** 
+
+`pip3 install -r requirements.txt`
+
+5. Create a .env file: Generate a .env file in the project directory and add the following variables: 
+
+```shell
+SECRET_KEY=<secret_key>
+DATABASE_URI=<database_connection_url_from_step_1>
+```
+
+6. **Initial database setup:** 
+
+run `create-db`
+
+7. **Initialize the migrations directory** (only the first time):
+
+ `flask db init`
+
+8. **To create a new migration** after a model change: 
+
+`flask db migrate -m "message describing the migration"`
+
+9. **To apply the migration** to the database:
+
+ `flask db upgrade`
+
    - The `create_db` command used for creating database tables might overlap with Flask-Migrate's functionality. Flask-Migrate handles the creation and management of tables based on the migration scripts. 
    - `create_db` can be used for initial database setup, but for schema changes, prefer using Flask-Migrate's `migrate` and `upgrade` commands for more controlled and versioned database alterations.
-9. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
+10. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
 
 ## Running the Application
 
