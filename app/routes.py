@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, jsonify, Blueprint, request
+from flask import Flask, render_template, abort, jsonify, Blueprint, request, url_for, redirect, flash, session
 from datetime import datetime, timedelta
 from sqlalchemy import func, extract
 from app.models.brand import Brand
@@ -14,6 +14,10 @@ from app.models.city import City
 from app.models.country import Country
 from app.models.region import Region
 from app.models.item_category import ItemCategory
+
+from app.forms.forms import BrandManagerSignupForm, BrandManagerLogInForm
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 from .database import db
 
@@ -37,8 +41,47 @@ model_mapping = {
 
 @bp.route('/')
 def home():
+    return render_template('home.html')
+
+@bp.route('/index')
+def index():
     return render_template('index.html')
 
+@bp.route('/signup', methods=['GET', 'POST'])
+def signup():
+    form = BrandManagerSignupForm(request.form)
+    if request.method == 'POST' and form.validate():
+        existing_user = BrandManager.query.filter_by(contact_email=form.email.data).first()
+        if existing_user is None:
+            hashed_password = generate_password_hash(form.password.data)
+            new_user = BrandManager(
+                full_name=form.full_name.data,
+                contact_email=form.email.data,
+                password_hash=hashed_password
+            )
+            db.session.add(new_user)
+            db.session.commit()
+            flash('Signup successful. You can now log in.', 'success')
+            return redirect(url_for('brand_manager.login'))
+        else:
+            flash('Email already exists.', 'error')
+
+    return render_template('sign_up.html', form=form)
+
+
+@bp.route('/login', methods=['GET', 'POST'])
+def login():
+    form = BrandManagerLogInForm()
+    if form.validate_on_submit():
+        user = BrandManager.query.filter_by(contact_email=form.email.data).first()
+        if user and check_password_hash(user.password_hash, form.password.data):
+
+            session['user_id'] = user.id  # example
+            return redirect(url_for('index'))  # Redirect to a dashboard or home page
+        else:
+            flash('Invalid email or password', 'error')
+
+    return render_template('log_in.html', form=form)
 
 @bp.route('/brand_managers/<int:brand_manager_id>/items')
 def get_items_by_brand_manager(brand_manager_id):

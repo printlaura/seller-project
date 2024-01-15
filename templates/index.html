@@ -6,6 +6,7 @@
 <body>
     <h1>hello</h1>
     <h2>welcome to our sales dashboard</h2>
+    <h2>if you didn't log in you are not supposed to access this page, but you are for assessment purposes :)</h2>
     <ul>
         <li><a href="{{ url_for('main_bp.get_items_by_brand_manager', brand_manager_id=1) }}">Items by brand manager</a></li>
         <li><a href="{{ url_for('main_bp.get_sales_by_year_month', year=2021, month=6) }}">Sales for a specific year & month</a></li>
