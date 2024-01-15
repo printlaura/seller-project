@@ -65,43 +65,78 @@ Use cases handled in this project:
 
 2. **Clone the repository:** 
 
-`git clone https://github.com/printlaura/seller-project.git`
+```shell
+git clone https://github.com/printlaura/seller-project.git
+```
 
-3. Navigate to the project directory
+3. **Create a Virtual Environment:**
 
-4. **Install dependencies:** 
+macOS/Linux
+```shell
+python3 -m venv venv
+```
+Windows
+```shell
+python -m venv venv
+```
 
-`pip3 install -r requirements.txt`
+4. **Activate the Virtual Environment**
 
-5. Create a .env file: Generate a .env file in the project directory and add the following variables: 
+macOS/Linux
+```shell
+source venv/bin/activate
+
+```
+Windows
+```shell
+.\venv\Scripts\activate
+```
+
+5. Navigate to the project directory
+
+6. **Install dependencies:** 
+
+```shell
+pip3 install -r requirements.txt
+```
+
+7. Create a .env file: Generate a .env file in the project directory and add the following variables: 
 
 ```shell
 SECRET_KEY=<secret_key>
 DATABASE_URI=<database_connection_url_from_step_1>
 ```
 
-6. **Initial database setup:** 
+8. **Initial database setup:** 
 
-run `create-db`
+```shell 
+create-db
+```
 
-7. **Initialize the migrations directory** (only the first time):
+9. **Initialize the migrations directory** (only the first time):
 
- `flask db init`
+```shell
+ flask db init
+```
 
-8. **To create a new migration** after a model change: 
+10. **To create a new migration** after a model change: 
 
-`flask db migrate -m "message describing the migration"`
+```shell
+flask db migrate -m "message describing the migration"
+```
 
-9. **To apply the migration** to the database:
+11. **To apply the migration** to the database:
 
- `flask db upgrade`
+```shell
+ flask db upgrade
+```
 
    - The `create_db` command used for creating database tables might overlap with Flask-Migrate's functionality. Flask-Migrate handles the creation and management of tables based on the migration scripts. 
    - `create_db` can be used for initial database setup, but for schema changes, prefer using Flask-Migrate's `migrate` and `upgrade` commands for more controlled and versioned database alterations.
-10. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
+12. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
 
 ## Running the Application
 
-1. Start the server: `python3 run.py`
+1. Start the server: `python3 run.py` *for macOS/Linux*
 2. Access the application at: `http://127.0.0.1:5000/`
 
