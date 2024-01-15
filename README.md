@@ -9,7 +9,16 @@ So far, Seller Project has already acquired several brands.
 The project was built to showcase Relational Databases development learnings, so all other aspects of the development of the Application should not be considered as finished or fully handled.
 For aspects of the development that are not assessed in this module (e.g. templating, scripting for the generation of random data, guidelines for this documentation, etc.), ChatGPT has been used as a helpful resource.
 
+## Table of Contents
 
+1. [High level data model](#high-level-business-explanation-for-better-understanding-of-the-data-model)
+1. [ERD](#ERD)
+1. [Use Cases](#use-cases)
+1. [Set up the development environment](#setting-up-the-development-environment)
+   1. [Prerequisites](#prerequisites)
+   1. [Installation](#installation)
+   1. [Running the app](#running-the-application)
+1. [Contribution list](#contribution-list)
 
 ## High level business explanation for better understanding of the data model
 - **Brands and Brand Managers**:
