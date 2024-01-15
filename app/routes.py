@@ -108,7 +108,7 @@ def get_total_sales_per_date():
 
 
 @bp.route('/brands/sales/<int:year>/<int:month>')
-def get_sales_per_brand_by_year_month(year, month):
+def get_items_sold_per_brand_by_year_month(year, month):
     sales_by_brand = (db.session.query(Brand.name,
                                        Brand.code,
                                        func.count(ItemOrdered.id).label('sales_count'),
