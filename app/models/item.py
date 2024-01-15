@@ -8,7 +8,7 @@ class Item(db.Model):
     product_title = db.Column(db.String, CheckConstraint('LENGTH(product_title) >= 3 OR product_title IS NULL'))
     brand_id = db.Column(db.BigInteger, db.ForeignKey('Brand.id', onupdate="CASCADE", ondelete="RESTRICT"), nullable=False)
     category_id = db.Column(db.BigInteger, db.ForeignKey('Category.id', onupdate="CASCADE", ondelete="SET NULL"), nullable=False)
-    country_of_sales_id = db.Column(db.BigInteger, db.ForeignKey('Country.id', onupdate="CASCADE", ondelete="SET NULL")
+    country_of_sales_id = db.Column(db.BigInteger, db.ForeignKey('Country.id', onupdate="CASCADE", ondelete="SET NULL"))
     unit_price_local_currency = db.Column(db.Float, nullable=False)
     sales_margin = db.Column(db.Float, CheckConstraint('sales_margin > -1 and sales_margin < 1'))
     launched_at = db.Column(db.Date, CheckConstraint('launched_at <= CURRENT_DATE'))

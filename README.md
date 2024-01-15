@@ -140,3 +140,24 @@ flask db migrate -m "message describing the migration"
 1. Start the server: `python3 run.py` *for macOS/Linux*
 2. Access the application at: `http://127.0.0.1:5000/`
 
+## Contribution List
+SE_05 Relational Databases contributions:
+
+ - Application of the concepts of relational databases to the project
+ - **Design** and implementation of the database schema, including the definition of tables, columns, primary and foreign keys, and relationships
+ - **Normalization** of the database schema (1N, 2N, 3N)
+- Use of **indexes** (and evaluation of trade off)
+ - use of **constraints** for data integrity enforce
+ - Use of basic SQL statements
+ - Use **SQLAlchemy** ORM library and theoretical implementation of **Alembic**, a database migration tool 
+
+ Prevention for SQL injection attacks with the use of an ORM (prisma) and server-side input validation (Zod)
+ Properly handling errors and exceptions
+ Prevention for broken object level authorization (BOLA)
+ Securely managing user sessions (short-lived JWT, refresh tokens) and access control (role-based access control)
+ Enforce strong password policies (e.g., password length, password complexity)
+ Securely managing user passwords (hashing with cost factor, salting)
+ Application of transport layer security (HTTPS) and subnetwork isolation (VPC)
+ Use of Cloudflare proxy to provide additional security against DDoS and performance benefits
+ Database backup and recovery
+

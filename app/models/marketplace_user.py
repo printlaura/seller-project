@@ -8,7 +8,7 @@ class MarketplaceUser(db.Model):
     user_name = db.Column(db.String, unique=True)
     full_name = db.Column(db.String)
     email = db.Column(db.String, unique=True)
-    marketplace_ic = db.Column(DB.BigInteger, db.ForeignKey(Marketplace.id, onupdate="CASCADE", ondelete="SET NULL")
+    marketplace_id = db.Column(db.BigInteger, db.ForeignKey('Marketplace.id', onupdate="CASCADE", ondelete="SET NULL"))
     last_updated = db.Column(db.Date)
 
     # relationships
