@@ -3,7 +3,9 @@
 # Seller Project
 
 ## Description
-This project was thought as if it was developed for an e-Commerce aggregator called Seller Project. An e-commerce aggregator is a business that acquires and consolidates multiple smaller online retailers or brands, typically operating in the same marketplaces (e.g. Amazon.pl, Amazon.com, Amazon.es, Shopify, Walmart.com).
+This project was thought as if it was developed for an e-Commerce aggregator called Seller Project. 
+An e-commerce aggregator is a business that acquires and consolidates multiple smaller online retailers or brands, typically operating in the same marketplaces (e.g. Amazon.pl, Amazon.com, Amazon.es, Shopify, Walmart.com).
+The target users of this Flask application are the Brand Managers. The tool should serve them for analytics, reporting and brand data management purposes.
 
 So far, Seller Project has already acquired several brands. 
 
@@ -53,6 +55,7 @@ For aspects of the development that are not assessed in this module (e.g. templa
 
 ## Use Cases
 Use cases handled in this project:
+- **Sign up/Log in as a Brand Manager**
 - **Get all Items by Brand Manager**: get all records from Item table whose `brand_id` belongs to a specific `brand_manager_id`
 - **Get Sales Orders by date**: get all Sales Orders that took place in a specific year & month.
 - **Get Sales Orders per date**: get the count of Sales Orders per each date.
