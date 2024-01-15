@@ -135,6 +135,12 @@ flask db migrate -m "message describing the migration"
    - `create_db` can be used for initial database setup, but for schema changes, prefer using Flask-Migrate's `migrate` and `upgrade` commands for more controlled and versioned database alterations.
 12. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
 
+13. (Optional) Save Database backup:
+
+```shell
+  python backup_db.py
+```
+
 ## Running the Application
 
 1. Start the server: `python3 run.py` *for macOS/Linux*
@@ -149,15 +155,12 @@ SE_05 Relational Databases contributions:
 - Use of **indexes** (and evaluation of trade off)
  - use of **constraints** for data integrity enforce
  - Use of basic SQL statements
- - Use **SQLAlchemy** ORM library and theoretical implementation of **Alembic**, a database migration tool 
+ - Use `SQLAlchemy` ORM library and theoretical implementation of `Alembic`, a database migration tool
+ - User passwords hashing with `bcrypt`
+ - **Prevent SQL injections**: in SQLAlchemy's `filter()` and `filter_by()` functions, arguments are automatically escaped
+- **Database backup**: `backup_db` script for manual backup in `/db/backups` dir.
 
- Prevention for SQL injection attacks with the use of an ORM (prisma) and server-side input validation (Zod)
- Properly handling errors and exceptions
- Prevention for broken object level authorization (BOLA)
- Securely managing user sessions (short-lived JWT, refresh tokens) and access control (role-based access control)
- Enforce strong password policies (e.g., password length, password complexity)
- Securely managing user passwords (hashing with cost factor, salting)
- Application of transport layer security (HTTPS) and subnetwork isolation (VPC)
- Use of Cloudflare proxy to provide additional security against DDoS and performance benefits
- Database backup and recovery
+### Missing:
+- Securing the database with implementations like access controls, definition of user roles and prevention of client-side SQL injection.
+- Automate database backup
 
