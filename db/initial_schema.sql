@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS BrandManager (
     id BIGSERIAL PRIMARY KEY,
     full_name VARCHAR NOT NULL,
     contact_email VARCHAR UNIQUE CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$' OR contact_email IS NULL)
+    password_hash VARCHAR(128)
 );
 
 CREATE TABLE IF NOT EXISTS Brand (

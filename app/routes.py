@@ -17,7 +17,7 @@ from app.models.item_category import ItemCategory
 
 from app.forms.forms import BrandManagerSignupForm, BrandManagerLogInForm
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import bcrypt
 
 from .database import db
 
@@ -43,9 +43,11 @@ model_mapping = {
 def home():
     return render_template('home.html')
 
+
 @bp.route('/index')
 def index():
     return render_template('index.html')
+
 
 @bp.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -53,7 +55,7 @@ def signup():
     if request.method == 'POST' and form.validate():
         existing_user = BrandManager.query.filter_by(contact_email=form.email.data).first()
         if existing_user is None:
-            hashed_password = generate_password_hash(form.password.data)
+            hashed_password = generate_password_hash(form.password.data, method='bcrypt')
             new_user = BrandManager(
                 full_name=form.full_name.data,
                 contact_email=form.email.data,
@@ -82,6 +84,7 @@ def login():
             flash('Invalid email or password', 'error')
 
     return render_template('log_in.html', form=form)
+
 
 @bp.route('/brand_managers/<int:brand_manager_id>/items')
 def get_items_by_brand_manager(brand_manager_id):
@@ -216,6 +219,8 @@ def add_brand():
         return jsonify({'message': 'Brand added successfully.'}), 201
 
     return render_template('add_brand.html')
+
+
 @bp.route('/update_brand_manager', methods=['GET', 'POST'])
 def update_brand_manager():
     if request.method == 'POST':
@@ -248,13 +253,15 @@ def update_brand_manager():
 
     return render_template('update_brand_manager.html')
 
+
 @bp.route('/delete_unsold_items')
 def delete_unsold_items():
     # Calculate the date 9 months ago --> fixed business requirement to consider an item as unsold
-    nine_months_ago = datetime.now() - timedelta(days=9*31)
+    nine_months_ago = datetime.now() - timedelta(days=9 * 31)
 
     # Find items that have been sold in the last 9 months
-    sold_item_ids = db.session.query(ItemOrdered.item_id).join(SalesOrder).filter(SalesOrder.order_date >= nine_months_ago).distinct()
+    sold_item_ids = db.session.query(ItemOrdered.item_id).join(SalesOrder).filter(
+        SalesOrder.order_date >= nine_months_ago).distinct()
 
     # Find items that have not been sold in the last 9 months
     unsold_items = Item.query.filter(~Item.id.in_(sold_item_ids)).all()
