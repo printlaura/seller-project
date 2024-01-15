@@ -45,7 +45,7 @@ Use cases handled in this project:
 - **Get all Items by Brand Manager**: get all records from Item table whose `brand_id` belongs to a specific `brand_manager_id`
 - **Get Sales Orders by date**: get all Sales Orders that took place in a specific year & month.
 - **Get Sales Orders per date**: get the count of Sales Orders per each date.
-- **Get Sales Orders per brand by date**: get the count of Sales Orders and the total sales margin earned per each brand, for a specific year & month.
+- **Get Items sold per brand by date**: get the count of Items sold and the total sales margin earned per each brand, for a specific year & month.
 - **Add Brand**: add a newly acquired Brand to the database.
 - **Update Brand Manager**: change the Brand Manager for a Brand. For example, for a scenario where the original Brand Manager quits and is replaced by a new one.
 - **Delete unsold items**: delete from the database all items that haven't sold any units in the last 9 months..
