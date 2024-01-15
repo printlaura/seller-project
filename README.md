@@ -15,8 +15,9 @@ For aspects of the development that are not assessed in this module (e.g. templa
 
 ## Table of Contents
 
-1. [High level data model](#high-level-business-explanation-for-better-understanding-of-the-data-model)
-1. [ERD](#entity-relationship-model)
+1. [High level business context](#high-level-business-explanation-for-better-understanding-of-the-data-model)
+1. [Data model](#data-model)
+   1. [ERD](#entity-relationship-model)
 1. [Use Cases](#use-cases)
 1. [Set up the development environment](#setting-up-the-development-environment)
    1. [Prerequisites](#prerequisites)
@@ -49,7 +50,12 @@ For aspects of the development that are not assessed in this module (e.g. templa
   - When a Marketplace User performs a purchase, it becomes a `Buyer`. 
 
 
-## Entity-Relationship Model
+## Data model
+The schema of the database can be found in `db/intial_schema.sql`.
+
+Such sql script is the translation of the following ERD:
+
+### Entity-Relationship Model
 ![ERD](ERD.png)
 
 
