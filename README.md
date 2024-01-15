@@ -127,26 +127,32 @@ pip3 install -r requirements.txt
 SECRET_KEY=<secret_key>
 DATABASE_URI=<database_connection_url_from_step_1>
 ```
+8. Make sure to start postgresql in your machine
 
-8. **Initial database setup:** 
+e.g. for macOS:   
+```shell
+brew services start postgresql
+```
+
+9. **Initial database setup:** 
 
 ```shell 
 create-db
 ```
 
-9. **Initialize the migrations directory** (only the first time):
+10. **Initialize the migrations directory** (only the first time):
 
 ```shell
  flask db init
 ```
 
-10. **To create a new migration** after a model change: 
+11. **To create a new migration** after a model change: 
 
 ```shell
 flask db migrate -m "message describing the migration"
 ```
 
-11. **To apply the migration** to the database:
+12. **To apply the migration** to the database:
 
 ```shell
  flask db upgrade
@@ -154,9 +160,10 @@ flask db migrate -m "message describing the migration"
 
    - The `create_db` command used for creating database tables might overlap with Flask-Migrate's functionality. Flask-Migrate handles the creation and management of tables based on the migration scripts. 
    - `create_db` can be used for initial database setup, but for schema changes, prefer using Flask-Migrate's `migrate` and `upgrade` commands for more controlled and versioned database alterations.
-12. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
 
-13. (Optional) Save Database backup:
+13. (Optional) Navigate to the root directory and run `python3 scripts/generate_mock_data.py` to generate random data for testing purposes.
+
+14. (Optional) Save Database backup:
 
 ```shell
   python backup_db.py
