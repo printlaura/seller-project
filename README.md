@@ -14,7 +14,7 @@ For aspects of the development that are not assessed in this module (e.g. templa
 ## Table of Contents
 
 1. [High level data model](#high-level-business-explanation-for-better-understanding-of-the-data-model)
-1. [ERD](#ERD)
+1. [ERD](#entity-relationship-model)
 1. [Use Cases](#use-cases)
 1. [Set up the development environment](#setting-up-the-development-environment)
    1. [Prerequisites](#prerequisites)
