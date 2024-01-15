@@ -6,7 +6,9 @@
 This project was thought as if it was developed for an e-Commerce aggregator called Seller Project. 
 An e-commerce aggregator is a business that acquires and consolidates multiple smaller online retailers or brands, typically operating in the same marketplaces (e.g. Amazon.pl, Amazon.com, Amazon.es, Shopify, Walmart.com).
 
-The target users of this Flask application are the Brand Managers of Seller Project company. The tool should serve them for analytics, reporting and brand data management purposes.
+The target users of this Flask application are the Brand Managers (employees of Seller Project who are in charge of each of the brands' business decisions).
+
+The tool should serve them for analytics, reporting and brand data management purposes.
 
 So far, Seller Project has already acquired several brands. 
 
